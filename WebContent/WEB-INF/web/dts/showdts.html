@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="Main">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<script type="text/javascript" src="/faq-webs/js/lib/angular.js"></script>
+<script type="text/javascript" src="/faq-webs/js/lib/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="/faq-webs/js/common/util.js"></script>
+<script ng-controller="MainController" type="text/javascript" src="/faq-webs/js/common/Main.js"></script>
+<script type="text/javascript" src="/faq-webs/js/dts/dts-Controller.js"></script>
+<script type="text/javascript" src="/faq-webs/js/common/dialogBox.js"></script>
+<title>angular</title>
+</head>
+<body>
+	<div ng-controller="dtsController" id="scope">
+		<div ng-init="$Controller.dtsController.init($Page);">
+			<input name="text" type="text" value="" ng-model="$Page.dtsModul.dtsId" />
+			<input name="text" type="button"
+				ng-click="$Controller.dtsController.queryDts($Page);" value="查询" />
+		</div>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>问题单编号</th>
+						<th>归属版本</th>
+						<th>归属模块</th>
+						<th>问题分类</th>
+						<th>问题单标题</th>
+						<th>问题描述</th>
+						<th>解决方案</th>
+						<th>参考Wiki</th>
+						<th>责任人</th>
+						<th>备注</th>
+						<th>创建时间</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="$Item in $Page.dtsModul.dtsInfoList">
+					<tr>
+						<td ng-bind="$Item.DTS_ID"></td>
+						<td ng-bind="$Item.VERSION"></td>
+						<td ng-bind="$Item.MODULE"></td>
+						<td ng-bind="$Item.TYPE"></td>
+						<td ng-bind="$Item.DTS_TITLE"></td>
+						<td ng-bind="$Item.DESCRIPTION"></td>
+						<td ng-bind="$Item.QUESTIONS"></td>
+						<td ng-bind="$Item.REFER_WIKI"></td>
+						<td ng-bind="$Item.PERSON_LIABLE"></td>
+						<td ng-bind="$Item.REMARK"></td>
+						<td ng-bind="$Item.CREATE_TIME"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</body>
+</html>

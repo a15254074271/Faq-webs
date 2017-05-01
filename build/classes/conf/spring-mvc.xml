@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" 
+		xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd 
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<!-- 扫描controller包 -->
+	<!-- base-package 如果多个，用“,”分隔 -->
+	<context:component-scan base-package="com">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<!-- <context:annotation-config/> -->
+	<!-- 完成请求和注解POJO的映射 -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/> -->
+	<!-- <mvc:default-servlet-handler /> -->
+	<mvc:annotation-driven />
+	
+	<!-- 页面转向解析 -->
+ 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/web/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- 静态资源访问 -->
+	<mvc:resources mapping="/**" location="/WEB-INF/web/" />
+	<!-- <mvc:resources mapping="/images/**" location="/WEB-INF/web/images/" />
+	<mvc:resources mapping="/js/**" location="/WEB-INF/web/js/" /> -->
+	<!-- 支持文件上传 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+
+</beans>

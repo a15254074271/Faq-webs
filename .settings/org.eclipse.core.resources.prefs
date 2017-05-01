@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF=UTF-8
+encoding//WebContent/WEB-INF/web/index/index.html=UTF-8
+encoding//WebContent/WEB-INF/web/index/index2.html=UTF-8
+encoding//WebContent/WEB-INF/web/index/navigation.html=UTF-8
+encoding//WebContent/WEB-INF/web/user/user-controller.js=UTF-8
+encoding//WebContent/WEB-INF/web/user/user-manage.html=UTF-8
+encoding//src/log4j.properties=UTF-8
+encoding//src/properties/jdbc.properties=UTF-8
+encoding/<project>=UTF-8
+separateDerivedEncodings=true

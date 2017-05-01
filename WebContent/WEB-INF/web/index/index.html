@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="Main">
+<head>
+<link ng-controller="MainController" rel="import"
+	href="/faq-webs/common/html/common.html" />
+<title>FAQ-Demo</title>
+</head>
+<body ng-controller="MainController">
+	<!-- <div ng-include="'/faq-webs/index/navigation.html'"></div> -->
+	<nav  class="navbar navbar-default navbar-static-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#/">FAQ-Demo</a>
+		</div>
+		<div >
+			<ul class="nav nav-pills">
+				<li ng-repeat="menu in $Page.menuList"><a href="#{{menu.MENU_LOGIC_PATH}}">{{menu.MENU_NAME}}</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+	
+	<div>
+		<div ng-view></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<div ng-init="$Controller.userController.init($Page);" id="scope">
+	<div>
+		<div>
+			<button class="btn btn-default" ng-click="$Page.userOperate = false">
+				<span class="glyphicon glyphicon-plus"></span>增加
+			</button>
+
+			<button class="btn btn-default" ng-click="$Page.userOperate = true">
+				<span class="glyphicon glyphicon-search"></span>查询
+			</button>
+		</div>
+	</div>
+	<div>
+		
+		<div ng-show="!$Page.userOperate" class="form-inline" role="form">
+			<input name="name" type="text" class="form-control" placeholder="姓名"
+				ng-model="$Page.name" /> <input name="sex" type="text"
+				class="form-control" placeholder="年龄" ng-model="$Page.sex" />
+
+			<button class="btn btn-default"
+				ng-click="$Controller.userController.addUser($Page);">
+				<span class="glyphicon glyphicon-plus"></span>增加
+			</button>
+		</div>
+
+		<div ng-show="$Page.userOperate" class="form-inline" role="form">
+			<input name="searchname" type="text" class="form-control"
+				placeholder="姓名" ng-model="$Page.searchname" /> <input
+				name="searchsex" type="text" class="form-control" placeholder="年龄"
+				ng-model="$Page.searchsex" />
+
+			<button class="btn btn-default"
+				ng-click="$Controller.userController.queryUser($Page);">
+				<span class="glyphicon glyphicon-search"></span>查询
+			</button>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr>
+						<th>序号</th>
+						<th>姓名</th>
+						<th>年龄</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="$Item in $Page.userInfo">
+					<tr>
+						<td ng-bind="$index+1"></td>
+						<td ng-bind="$Item.name"></td>
+						<td ng-bind="$Item.sex"></td>
+						<td>
+							<button class="btn btn-default"
+								ng-click="$Controller.userController.delUser($Item);">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<ul class="pagination">
+				<li><a href="#">&laquo;</a></li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">&raquo;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
